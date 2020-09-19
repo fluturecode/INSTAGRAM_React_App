@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Post from "./components/Post";
 
 function App() {
+	const [posts, setPosts] = useState([
+		{
+			username: "fluturecode",
+			caption: "Building instagram now...",
+			imageUrl:
+				"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
+		},
+		{
+			username: "fluturecode",
+			caption: "Building instagram now...",
+			imageUrl:
+				"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
+		},
+	]);
+
 	return (
 		<div className="app">
 			<div className="app__header">
@@ -12,9 +27,13 @@ function App() {
 					alt="instagram logo"
 				/>
 			</div>
-			<Post />
-			<Post />
-			<Post />
+			{posts.map((post) => (
+				<Post
+					username={post.username}
+					caption={post.caption}
+					imageUrl={post.imageUrl}
+				/>
+			))}
 		</div>
 	);
 }
