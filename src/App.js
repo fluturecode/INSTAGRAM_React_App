@@ -9,7 +9,12 @@ function App() {
 	useEffect(() => {
 		// snapshot is listenting for changes to 'posts'
 		db.collection("posts").onSnapshot((snaphot) => {
-			setPosts(snapshot.docs.map((doc) => doc.data()));
+			setPosts(
+				snapshot.docs.map((doc) => ({
+					id: doc.id,
+					post: doc.data(),
+				}))
+			);
 		});
 	}, []);
 
@@ -22,8 +27,10 @@ function App() {
 					alt="instagram logo"
 				/>
 			</div>
-			{posts.map((post) => (
+
+			{posts.map(({ id, post }) => (
 				<Post
+					key={id}
 					username={post.username}
 					caption={post.caption}
 					imageUrl={post.imageUrl}
