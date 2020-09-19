@@ -1,22 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./components/Post";
+import { db } from "./firebase";
 
 function App() {
-	const [posts, setPosts] = useState([
-		{
-			username: "fluturecode",
-			caption: "Building instagram now...",
-			imageUrl:
-				"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
-		},
-		{
-			username: "fluturecode",
-			caption: "Building instagram now...",
-			imageUrl:
-				"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
-		},
-	]);
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		// snapshot is listenting for changes to 'posts'
+		db.collection("posts").onSnapshot((snaphot) => {
+			setPosts(snapshot.docs.map((doc) => doc.data()));
+		});
+	}, []);
 
 	return (
 		<div className="app">
