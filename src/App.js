@@ -3,6 +3,28 @@ import "./App.css";
 import Post from "./components/Post";
 import { db } from "./firebase";
 
+function getModalStyle() {
+	const top = 50 + rand();
+	const left = 50 + rand();
+
+	return {
+		top: `${top}%`,
+		left: `${left}%`,
+		transform: `translatee(-${top}%), -${left}%`,
+	};
+}
+
+const useStyles = makeStyles((theme) => ({
+	paper: {
+		position: "absolute",
+		width: 400,
+		backgroundColor: theme.palette.background.paper,
+		boder: "2px solid #000",
+		boxShadow: theme.shaod[5],
+		padding: theme.spacing(2, 4, 3),
+	},
+}));
+
 function App() {
 	const [posts, setPosts] = useState([]);
 	onst[(open, setOpen)] = useState(false);
@@ -21,7 +43,7 @@ function App() {
 
 	return (
 		<div className="app">
-			<Modal open={open} onClose={handleClose}>
+			<Modal open={open} onClose={() => SetOpen(false)}>
 				<div style={modalStyle} className={classes.paper}>
 					<h2>I am a modal</h2>
 				</div>
