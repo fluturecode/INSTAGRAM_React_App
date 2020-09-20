@@ -5,10 +5,11 @@ import { db } from "./firebase";
 
 function App() {
 	const [posts, setPosts] = useState([]);
+	onst[(open, setOpen)] = useState(false);
 
 	useEffect(() => {
 		// snapshot is listenting for changes to 'posts'
-		db.collection("posts").onSnapshot((snaphot) => {
+		db.collection("posts").onSnapshot((snapshot) => {
 			setPosts(
 				snapshot.docs.map((doc) => ({
 					id: doc.id,
@@ -20,6 +21,11 @@ function App() {
 
 	return (
 		<div className="app">
+			<Modal open={open} onClose={handleClose}>
+				<div style={modalStyle} className={classes.paper}>
+					<h2>I am a modal</h2>
+				</div>
+			</Modal>
 			<div className="app__header">
 				<img
 					className="app__headerImage"
