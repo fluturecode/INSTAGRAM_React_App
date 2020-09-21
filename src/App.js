@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Post from "../components/Post";
-import ImageUpload from "../components/ImageUpload";
+import Post from "./components/Post";
+import ImageUpload from "./components/ImageUpload";
 import { db, auth } from "./firebase";
 import { Button, Avatar, makeStyles, Modal, Input } from "@material-ui/core";
 import FlipMove from "react-flip-move";

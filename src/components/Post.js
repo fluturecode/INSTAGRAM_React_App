@@ -1,7 +1,7 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import "./Post.css";
 import Avatar from "@material-ui/core/Avatar";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import firebase from "firebase";
 
 const Post = forwardRef(
