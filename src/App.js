@@ -39,26 +39,22 @@ function App() {
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
-		auth.onAuthStateChanged((authUser) => {
+		const unsubscribe = auth.onAuthStateChanged((authUser) => {
 			if (authUser) {
 				// user has logged in...
 				console.log(authUser);
 				// this keeps user logged in
 				setUser(authUser);
-
-				if (authUser.displayName) {
-					// don't update username
-				} else {
-					// if just created a new user
-					return authUser.updateProfile({
-						displayName: username,
-					});
-				}
 			} else {
 				// user has logged out....
 				setUser(null);
 			}
 		});
+
+		return () => {
+			// perform some cleanup before refire useEffect
+			unsubscribe();
+		};
 	}, [user, username]);
 
 	useEffect(() => {
@@ -78,6 +74,11 @@ function App() {
 
 		auth
 			.createUserWithEmailAndPassword(email, password)
+			.then((authUser) => {
+				return authUser.user.updateProfile({
+					displayName: username,
+				});
+			})
 			.catch((err) => alert(err.message));
 	};
 
@@ -116,7 +117,19 @@ function App() {
 				</div>
 			</Modal>
 
-			<div className="app__header"></div>
+			<div className="app__header">
+				<img
+					className="app__headerImage"
+					src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"
+					alt="baby yoda"
+				/>
+			</div>
+
+			{user ? (
+				<Button onClick={() => auth.signOut()}>Logout</Button>
+			) : (
+				<Button onClick={() => setOpen(true)}> Sign Up</Button>
+			)}
 
 			{posts.map(({ id, post }) => (
 				<Post
