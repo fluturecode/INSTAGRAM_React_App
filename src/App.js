@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./components/Post";
 import { db } from "./firebase";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import { Button } from "@material-ui/core";
 
 function getModalStyle() {
 	const top = 50 + rand();
@@ -26,8 +29,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+	const classes = useStyles();
+	const [modaStyle] = useState(getModalStyle);
+
 	const [posts, setPosts] = useState([]);
-	onst[(open, setOpen)] = useState(false);
+	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		// snapshot is listenting for changes to 'posts'
