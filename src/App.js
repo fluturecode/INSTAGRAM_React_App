@@ -82,10 +82,14 @@ function App() {
 
 		const channel = pusher.subscribe("posts");
 		// pub sub method
-		channel.bind("inserted", function (data) {
+		channel.bind("inserted", (data) => {
 			console.log("data received", data);
 			fetchPosts();
 		});
+	}, []);
+
+	useEffect(() => {
+		fetchPosts();
 	}, []);
 
 	console.log("posts are >>>", posts);
