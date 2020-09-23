@@ -75,8 +75,8 @@ function App() {
 		});
 
 	useEffect(() => {
-		const { PUSHER_KEY } = process.env;
-		const pusher = new Pusher(PUSHER_KEY, {
+		const { REACT_APP_PUSHER_KEY } = process.env;
+		const pusher = new Pusher(REACT_APP_PUSHER_KEY, {
 			cluster: "us2",
 		});
 
