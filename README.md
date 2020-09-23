@@ -1,3 +1,6 @@
+### INSTAGRAM Clone - MERN Web App
+![Screen Shot 2020-09-23 at 7 28 13 PM](https://user-images.githubusercontent.com/59614789/94084265-2346f100-fdd3-11ea-972f-0039c708f89c.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
