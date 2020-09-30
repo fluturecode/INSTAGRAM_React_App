@@ -1,11 +1,8 @@
 ### INSTAGRAM Clone - MERN Web App
-![Screen Shot 2020-09-23 at 7 28 13 PM](https://user-images.githubusercontent.com/59614789/94084265-2346f100-fdd3-11ea-972f-0039c708f89c.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
+![Screen Shot 2020-09-23 at 7 28 13 PM](https://user-images.githubusercontent.com/59614789/94084265-2346f100-fdd3-11ea-972f-0039c708f89c.png)
 
 ### `yarn start`
 
@@ -46,26 +43,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Firebase deploy.
 
 ### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
